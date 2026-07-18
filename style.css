@@ -1,0 +1,262 @@
+/* Layout Global Foundation Resets */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background-color: #0b0f19;
+    color: #e2e8f0;
+    padding: 30px;
+    min-height: 100vh;
+}
+
+.network-dashboard {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Header Component Configuration */
+.module-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1e293b;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.module-header h2 {
+    color: #38bdf8;
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+.module-header p {
+    color: #64748b;
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+/* Operational Buttons UI Layout */
+.btn-primary {
+    background-color: #0284c7;
+    color: #fff;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover { background-color: #0369a1; }
+
+.btn-secondary {
+    background: transparent;
+    color: #94a3b8;
+    border: 1px solid #334155;
+    padding: 10px 18px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-right: 12px;
+    transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+    color: #fff;
+    border-color: #64748b;
+    background-color: #1e293b;
+}
+
+/* Telemetry Cards Row Grid */
+.metrics-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.metric-card {
+    background-color: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 8px;
+    padding: 24px;
+}
+
+.card-label {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.metric-card h2 {
+    font-size: 2rem;
+    color: #f8fafc;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.card-subtext { font-size: 0.85rem; }
+.card-subtext.state-normal { color: #64748b; }
+.card-subtext.state-success { color: #10b981; }
+
+/* Dashboard Split Grid Layout Foundations */
+.panel-layout {
+    display: grid;
+    grid-template-columns: 1.6fr 1.4fr;
+    gap: 25px;
+}
+
+@media (max-width: 1024px) {
+    .panel-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.data-panel {
+    background-color: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 8px;
+    padding: 24px;
+    min-height: 485px;
+}
+
+.panel-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #1f2937;
+    padding-bottom: 12px;
+}
+
+.panel-title h3 {
+    font-size: 1rem;
+    color: #94a3b8;
+}
+
+.status-indicator-legend {
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-right: 4px;
+}
+.dot.optimal { background-color: #10b981; }
+.dot.degraded { background-color: #f59e0b; }
+.dot.offline { background-color: #f43f5e; }
+
+/* Network Gateway Matrix Items grid */
+.network-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.network-card {
+    background-color: #0f172a;
+    border: 1px solid #1f2937;
+    border-radius: 6px;
+    padding: 16px;
+    transition: all 0.2s ease;
+}
+
+.network-card:hover {
+    border-color: #38bdf8;
+    background-color: #1e293b;
+}
+
+.channel-tag {
+    display: block;
+    font-size: 0.7rem;
+    color: #64748b;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.channel-name {
+    font-size: 0.95rem;
+    color: #f8fafc;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.channel-status {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.channel-status::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.network-card.status-online .channel-status { color: #10b981; }
+.network-card.status-online .channel-status::before { background-color: #10b981; }
+
+.network-card.status-warning .channel-status { color: #f59e0b; }
+.network-card.status-warning .channel-status::before { background-color: #f59e0b; }
+
+.network-card.status-error .channel-status { color: #f43f5e; }
+.network-card.status-error .channel-status::before { background-color: #f43f5e; }
+
+/* Liquidity Matrix Grid Data Tables */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.stream-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.stream-table th {
+    color: #64748b;
+    padding: 12px;
+    border-bottom: 2px solid #1f2937;
+    font-weight: 600;
+}
+
+.stream-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #1f2937;
+    color: #cbd5e1;
+}
+
+.pool-amount {
+    font-family: monospace;
+    font-weight: 600;
+    color: #e2e8f0;
+}
+
+.badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+.badge.active { background-color: rgba(16, 185, 129, 0.15); color: #10b981; }
+.badge.standby { background-color: rgba(245, 158, 11, 0.15); color: #f59e0b; }

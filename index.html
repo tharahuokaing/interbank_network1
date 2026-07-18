@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HT Banking System - Interbank Gateway Controller</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="network-dashboard">
+        <!-- Module Header Area -->
+        <header class="module-header">
+            <div class="title-area">
+                <h2>INTERBANK CORRESPONDENT GATEWAY</h2>
+                <p>Huokaing Thara Banking System • External Settlement & Liquidity Routing</p>
+            </div>
+            <div class="action-buttons">
+                <button id="pingNodesBtn" class="btn-secondary">Ping Protocol Nodes</button>
+                <button id="rebalancePoolsBtn" class="btn-primary">Optimize Liquidity</button>
+            </div>
+        </header>
+
+        <!-- Network Channel Telemetry Indicators -->
+        <section class="metrics-row">
+            <div class="metric-card">
+                <span class="card-label">Active Clearing Bridges</span>
+                <h2 id="activeBridgesCount">0 / 0</h2>
+                <p class="card-subtext state-success">● Main gateway pipelines operational</p>
+            </div>
+            <div class="metric-card">
+                <span class="card-label">Global Interbank Liquidity</span>
+                <h2 id="totalLiquidityText">$0.00</h2>
+                <p class="card-subtext state-normal">Aggregated currency reserve pools</p>
+            </div>
+            <div class="metric-card">
+                <span class="card-label">Network Latency</span>
+                <h2>14ms</h2>
+                <p class="card-subtext state-success">▲ Optimal messaging speed</p>
+            </div>
+        </section>
+
+        <!-- Main Workspace Split Grid Layout -->
+        <div class="panel-layout">
+            
+            <!-- Gateway Protocol Nodes Matrix -->
+            <section class="data-panel network-matrix-section">
+                <div class="panel-title">
+                    <h3>Operational Clearing Channels</h3>
+                    <span class="status-indicator-legend">
+                        <span class="dot optimal"></span> Online 
+                        <span class="dot degraded"></span> Degraded
+                        <span class="dot offline"></span> Offline
+                    </span>
+                </div>
+                
+                <div class="network-grid" id="networkGridContainer">
+                    <!-- Populated dynamically via interbank_network.js -->
+                </div>
+            </section>
+
+            <!-- Peer Settlement Activity Ledger -->
+            <section class="data-panel log-section">
+                <div class="panel-title">
+                    <h3>Live Settlement Streams</h3>
+                </div>
+                <div class="table-wrapper">
+                    <table class="stream-table">
+                        <thead>
+                            <tr>
+                                <th>Channel</th>
+                                <th>Currency</th>
+                                <th>Allocation Pool</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="networkStreamBody">
+                            <!-- Filled dynamically via interbank_network.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="interbank_network.js"></script>
+</body>
+</html>
